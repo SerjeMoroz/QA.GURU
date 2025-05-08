@@ -1,9 +1,12 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -16,7 +19,8 @@ public class GitHubSearchTest {
         $("#query-builder-test").setValue("Selenide").pressEnter();
         $$(".Box-sc-g0xbh4-0.JcuiZ").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
-        sleep(2000);
-
+        $("#wiki-tab").click();
+        $(byText("Soft assertions")).shouldHave(text("Soft assertions")).click();
+        $(".markdown-body").shouldHave(text("Using JUnit5 extend test class"));
     }
 }

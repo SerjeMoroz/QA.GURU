@@ -16,6 +16,5 @@ public class GitHubSearchTest {
         $("#query-builder-test").setValue("Selenide").pressEnter();
         $$(".Box-sc-g0xbh4-0.JcuiZ").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
-
     }
 }

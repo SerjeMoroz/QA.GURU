@@ -11,12 +11,11 @@ public class GitHubSearchTest {
     @Test
     void githubTest() {
         open("https://github.com");
-        getWebDriver().manage().window().maximize();
+        Configuration.browserSize = "1920x1080";
         $("span[class='flex-1']").click();
         $("#query-builder-test").setValue("Selenide").pressEnter();
         $$(".Box-sc-g0xbh4-0.JcuiZ").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
-        sleep(2000);
 
     }
 }
